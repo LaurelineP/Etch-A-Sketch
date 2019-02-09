@@ -1,3 +1,12 @@
 #container {
-    
+    width: 70%;
+}
+.grid {
+    display: grid;
+}
+
+.square {
+    padding: 10px;
+    background-color: #358;
+    margin: 2px;
 }
