@@ -1,50 +1,110 @@
-#container {
-  margin: auto;
-  padding: 20px;
+/* ErrorMessage display animation */
+@-webkit-keyframes _display {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
+@-moz-keyframes _display {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes _display {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes _display {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ChangeSize animation */
+@-webkit-keyframes _display {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes _display {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes _display {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes _display {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+
+* {
+  outline: none;
+}
+
+body {
+  margin:0;
+}
+#container {
+  background-color: #88B;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  font-size: 30px;
+  color: #fff;
+}
+
+
 .grid {
-    display: grid;
-    grid-row-gap: 1px;
-    grid-column-gap: 1px;
+  display: grid;
+  grid-row-gap: 1px;
+  grid-column-gap: 1px;
 }
 
 .square {
-    background-color: #EEE;
-    height: 30px;
-    width: 30px;
+  background-color: #EEE;
+  height: 30px;
+  width: 30px;
 }
 
 .square:hover {
-    background: pink;
+  background: pink;
+}
+
+#buttons-container {
+  margin: 10px;
 }
 
 #errorMessage {
-    display: none;
-    margin-right: auto;
-    background-color: yellow;
+  display: none;
+  margin-right: auto;
+  background-color: yellow;
+}
+
+#grid-input {
+  border: none;
+  border-radius: 2px;
+  height: 36px;
+  padding: 0 20px;
+}
+
+#addButton, #removeButton {
+  border: none;
+  border-radius: 50px;
+  height: 36px;
+  width: 36px;
 }
 
 #errorMessage.visible {
-    display: block;
-    -webkit-animation: _display 1s ; /* Safari 4+ */
-    -moz-animation:    _display 1s ; /* Fx 5+ */
-    -o-animation:      _display 1s ; /* Opera 12+ */
-    animation:         _display 1s ; /* IE 10+, Fx 29+ */
+  display: block;
+  -webkit-animation: _display 1s ; /* Safari 4+ */
+  -moz-animation:    _display 1s ; /* Fx 5+ */
+  -o-animation:      _display 1s ; /* Opera 12+ */
+  animation:         _display 1s ; /* IE 10+, Fx 29+ */
 }
-
-@-webkit-keyframes _display {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  @-moz-keyframes _display {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  @-o-keyframes _display {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  @keyframes _display {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-  }
