@@ -10,7 +10,16 @@
 <body>
     <div id="container">
         <div id="grid"></div>
+        <div id="buttons-container">
+            <button id="addButton" onclick="changeGridSize('more')">+</button>
+            <input id="grid-size-input" type="text" text="" placeholder="" oninput="check()">
+            <button id="removeButton" onclick="changeGridSize('less')">-</button>
+            <button id="submitButton" onclick="changeGridSize('getValue')">submit</button>
+            <button id="submitButton" onclick="remove()">clear</button>
+            <p id="errorMessage">Must be numbers</p>
+        </div>
     </div>
+    <footer>by Laureline</footer>
 
     <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"

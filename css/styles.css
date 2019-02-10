@@ -1,12 +1,50 @@
 #container {
-    width: 70%;
+  margin: auto;
+  padding: 20px;
 }
 .grid {
     display: grid;
+    grid-row-gap: 1px;
+    grid-column-gap: 1px;
 }
 
 .square {
-    padding: 10px;
-    background-color: #358;
-    margin: 2px;
+    background-color: #EEE;
+    height: 30px;
+    width: 30px;
 }
+
+.square:hover {
+    background: pink;
+}
+
+#errorMessage {
+    display: none;
+    margin-right: auto;
+    background-color: yellow;
+}
+
+#errorMessage.visible {
+    display: block;
+    -webkit-animation: _display 1s ; /* Safari 4+ */
+    -moz-animation:    _display 1s ; /* Fx 5+ */
+    -o-animation:      _display 1s ; /* Opera 12+ */
+    animation:         _display 1s ; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes _display {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @-moz-keyframes _display {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @-o-keyframes _display {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes _display {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
