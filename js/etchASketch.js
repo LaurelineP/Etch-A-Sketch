@@ -1,4 +1,64 @@
+let clickEvents = [];
 let initValue = 16;
+let color = '#000';
+
+
+/* Check the input's value for digits and not alphabetical caracters */
+function checkForNumber () {
+    let inputValue = event.target.value;
+    let regexp = /^\d{1,}$/;
+    if(inputValue){
+        if(!inputValue.match(regexp) || inputValue < 16){
+            $('#errorMessage').addClass('visible');
+            return false;
+        } else {
+            $('#errorMessage').removeClass('visible');
+            return true;
+        }
+    } else if ( inputValue === '') {
+        $('#errorMessage').removeClass('visible');
+    }
+    return null;
+}
+
+/* Add tracing function */
+function enableTracing () {
+    $('.square').on('click', () => {
+        clickEvents.push('click')
+        $('.square').hover(()=> {
+            console.log(' over')
+            let id = event.target.id;
+            $(`#${id}`).css({"background-color": color});
+        })
+        checkNbClicks()
+    })
+}
+
+/* Set the color for tracing */
+function setColor (){
+    color = event.target.value;
+}
+
+/* Helper function checking the user progress on tracing */
+function checkNbClicks(){
+    if(clickEvents.length === 2){
+        console.log(' ouiiii 2')
+        $('.square').off('click');
+        $('.square').unbind('mouseenter mouseleave');
+        enableTracing();
+        clickEvents = [];
+    }
+}
+
+/* Submitting by pressink key "Enter" */
+function getEnter () {
+    if(event.charCode === 13 && checkForNumber()){
+        changeGridSize( 'getValue' )
+    }
+}
+
+
+/*************** GRID ************ */
 /* Init grid creation */
 function generateGrid (n) {
     /* Set value of css propriety grid-template-columns */
@@ -6,7 +66,7 @@ function generateGrid (n) {
         var nCol = n;
         let classValue = '';
         while ( nCol > 0){
-            classValue += '30px '
+            classValue += '15px '
             nCol--;
         }
         $('#grid').css({"display":"grid","grid-template-columns":classValue});
@@ -28,25 +88,6 @@ function generateGrid (n) {
 }
 
 
-/* Check the input's value for digits and not alphabetical caracters */
-function check () {
-    let inputValue = event.target.value;
-    let regexp = /^\d{1,}$/;
-    if(inputValue){
-        if(!inputValue.match(regexp) || inputValue < 16){
-            $('#errorMessage').addClass('visible');
-            return false;
-        } else {
-            $('#errorMessage').removeClass('visible');
-            return true;
-        }
-    } else if ( inputValue === '') {
-        $('#errorMessage').removeClass('visible');
-    }
-    return null;
-}
-
-
 /* Submitting the input or Make on action on Add or Remove buttons */
 function changeGridSize ( action ) {
     let inputValue = parseInt($('#grid-input')[0].value);
@@ -57,24 +98,25 @@ function changeGridSize ( action ) {
     } else {
         initValue = 16;
     }
-
+    enableTracing();
 }
 
-/* Submitting by pressink key "Enter" */
-function getEnter () {
-    if(event.charCode === 13 && check()){
-        changeGridSize( 'getValue' )
-    }
+
+/* Clear the entire sheet */
+function clearSquare () {
+    $('.square').css('background-color', '#EEE')
 }
 
-function remove () {
-    $('.square').remove();
-}
 
+/* Create Grid */
 Grid = (n) => {
     let initCols = n ? n : initValue;
-    remove()
+    $('.square').remove();
     $('#grid').append( generateGrid(initCols) );
+    enableTracing();
+
 }
 
-$(document).ready( () => Grid());
+
+
+$(document).ready( () => Grid() );

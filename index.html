@@ -10,14 +10,16 @@
 <body>
     <div id="container">
         <header>Etch a Sketch</header>
+        <h3>Create your pixel art guyzzz</h3>
         <div id="grid"></div>
         <div id="buttons-container">
             <button id="addButton" onclick="changeGridSize('more')">+</button>
-            <input id="grid-input" type="text" text="" placeholder="" oninput="check()" onkeypress="getEnter()">
+            <input id="grid-input" type="text" text="" placeholder="" oninput="checkForNumber()" onkeypress="getEnter()">
             <button id="removeButton" onclick="changeGridSize('less')">-</button>
             <button id="submitButton" onclick="changeGridSize('getValue')">submit</button>
-            <button id="submitButton" onclick="remove()">clear</button>
+            <button id="submitButton" onclick="clearSquare()">clear</button>
             <p id="errorMessage">Must be a number higher than 16</p>
+            <input id="color-input" type="color" onchange="setColor()">
         </div>
         <footer>by Laureline</footer>
     </div>
