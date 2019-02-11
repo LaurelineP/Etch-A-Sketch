@@ -25,10 +25,9 @@ function checkForNumber () {
 function enableTracing () {
     $('.square').on('click', () => {
         clickEvents.push('click')
-        $('.square').hover(()=> {
-            console.log(' over')
+        $('.square').hover( ()=> {
             let id = event.target.id;
-            $(`#${id}`).css({"background-color": color});
+            $(`#${id}`).css({ "background-color": color });
         })
         checkNbClicks()
     })
@@ -42,7 +41,6 @@ function setColor (){
 /* Helper function checking the user progress on tracing */
 function checkNbClicks(){
     if(clickEvents.length === 2){
-        console.log(' ouiiii 2')
         $('.square').off('click');
         $('.square').unbind('mouseenter mouseleave');
         enableTracing();
@@ -66,7 +64,7 @@ function generateGrid (n) {
         var nCol = n;
         let classValue = '';
         while ( nCol > 0){
-            classValue += '15px '
+            classValue += 'auto '
             nCol--;
         }
         $('#grid').css({"display":"grid","grid-template-columns":classValue});

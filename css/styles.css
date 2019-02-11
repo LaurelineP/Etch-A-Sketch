@@ -35,7 +35,9 @@
 }
 
 
-
+:root {
+  --size : 480px;
+}
 * {
   outline: none;
 }
@@ -63,14 +65,15 @@ header {
 
 .grid {
   display: grid;
-  grid-row-gap: 1px;
-  grid-column-gap: 1px;
+  height: var(--size);
+  width: var(--size);
 }
 
 .square {
   background-color: #EEE;
-  height: 15px;
-  width: 15px;
+  height: calc(var(--size)/ 16);
+  width: calc(var(--size) / 16);
+  border: 1px solid grey;
 }
 
 .square:hover {
